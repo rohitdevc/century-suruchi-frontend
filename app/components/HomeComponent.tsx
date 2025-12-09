@@ -40,6 +40,8 @@ export default function HomeComponent({
     management,
     investors
 }: HomeComponentProps) {
+    const basePath = process.env.NEXT_PUBLIC_IMG_URL;
+
     const aboutRef = useRef<HTMLDivElement | null>(null);
     const keyManagementRef = useRef<HTMLDivElement | null>(null);
     const investorRelationRef = useRef<HTMLDivElement | null>(null);
@@ -99,10 +101,10 @@ export default function HomeComponent({
           </Swiper>
           <div className="flex flex-row justify-end p-5 gap-3">
             <span className="cursor-pointer swiper-button-prev-master-slider">
-              <Image src="/images/icons/left-arrow.svg" alt="Left Arrow" width={25} height={25} />
+              <Image src={`${basePath}images/icons/left-arrow.svg`} alt="Left Arrow" width={25} height={25} />
             </span>
             <span className="cursor-pointer swiper-button-next-master-slider">
-              <Image src="/images/icons/right-arrow.svg" alt="Right Arrow" width={25} height={25} />
+              <Image src={`${basePath}images/icons/right-arrow.svg`} alt="Right Arrow" width={25} height={25} />
             </span>
           </div>
         </section>
@@ -132,7 +134,7 @@ export default function HomeComponent({
               <input type="checkbox" className="peer absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer transition-all duration-200 checked:inset-auto checked:left-0 checked:top-[4.5rem] checked:w-[220px] checked:h-[50px]" />
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium font-corporate-regular mb-10 group-hover:mb-0 peer-checked:mb-0">{objectives[0].company_objective_caption}</h2>
               <span className="absolute left-0 mt-16 flex gap-5 items-center font-corporate-light text-lg md:text-xl lg:text-[25px] transition-opacity duration-100 opacity-100 group-hover:opacity-0 peer-checked:opacity-0">
-                <Image src='/images/icons/right-arrow-button.svg' alt="Right Arrow" width={40} height={40} className="w-5 md:w-10" /> Learn More
+                <Image src={`${basePath}images/icons/right-arrow-button.svg`} alt="Right Arrow" width={40} height={40} className="w-5 md:w-10" /> Learn More
               </span>
               <p className="w-full md:w-1/2 text-lg max-h-0 opacity-0 overflow-y-auto overflow-hidden transition-all duration-1000 ease-out group-hover:max-h-[fit-content] peer-checked:max-h-[fit-content] group-hover:opacity-100 peer-checked:opacity-100">{parse(nl2br(objectives[0].company_objective_description))}</p>
             </div>
@@ -156,7 +158,7 @@ export default function HomeComponent({
                   <input type="checkbox" className="peer absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer transition-all duration-200 checked:inset-auto checked:left-0 checked:top-[4.5rem] checked:w-[220px] checked:h-[50px]" />
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium font-corporate-regular mb-10 group-hover:mb-0 peer-checked:mb-0">{objective.company_objective_caption}</h2>
                   <span className="absolute left-0 mt-16 flex gap-5 items-center font-corporate-light text-lg md:text-xl lg:text-[25px] transition-opacity duration-100 opacity-100 group-hover:opacity-0 peer-checked:opacity-0">
-                    <Image src='/images/icons/right-arrow-button.svg' alt="Right Arrow" width={40} height={40} className="w-5 md:w-10" /> Learn More
+                    <Image src={`${basePath}images/icons/right-arrow-button.svg`} alt="Right Arrow" width={40} height={40} className="w-5 md:w-10" /> Learn More
                   </span>
                   <p className="text-lg max-h-0 opacity-0 overflow-y-auto overflow-hidden transition-all duration-1000 ease-out group-hover:max-h-[fit-content] peer-checked:max-h-[fit-content] group-hover:opacity-100 peer-checked:opacity-100">{parse(nl2br(objective.company_objective_description))}</p>
                   </div>
@@ -217,7 +219,7 @@ export default function HomeComponent({
                           <div className="flex flex-col gap-3 px-5 pb-5">
                             <div className="flex flex-row justify-between gap-5 text-xl lg:text-2xl w-full cursor-pointer" onClick={() => toggleInvestorRelationAccordian(category_key)}>
                               <h2>{investor_relation_category.investor_relation_category_title}</h2>
-                              <Image src="/images/icons/down-arrow.svg" alt="Down Arrow" width={20} height={20} className={`transition-all duration-300 ${openInvestorRelation === category_key ? "rotate-180" : ''}`} />
+                              <Image src={`${basePath}images/icons/down-arrow.svg`} alt="Down Arrow" width={20} height={20} className={`transition-all duration-300 ${openInvestorRelation === category_key ? "rotate-180" : ''}`} />
                             </div>
                             <div className={`overflow-hidden transition-all duration-300 ${openInvestorRelation === category_key ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}>
                               {
@@ -245,7 +247,7 @@ export default function HomeComponent({
                           <div className="flex flex-col gap-3 px-5 pb-5">
                             <div className="flex flex-row justify-between gap-5 text-2xl md:text-xl lg:text-2xl w-full cursor-pointer">
                               <h2>{investor_relation.investor_relation_tab_title}</h2>
-                              <Image src="/images/icons/down-arrow.svg" alt="Down Arrow" width={20} height={20} className={`transition-all duration-300 rotate-180}`} />
+                              <Image src={`${basePath}images/icons/down-arrow.svg`} alt="Down Arrow" width={20} height={20} className={`transition-all duration-300 rotate-180}`} />
                             </div>
                             <div className={`overflow-hidden transition-all duration-300 max-h-[500px] opacity-100}`}>
                               { (investor_relation.investor_relation_tab_content) ? parse(investor_relation.investor_relation_tab_content) : ''}
