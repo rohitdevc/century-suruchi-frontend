@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  basePath: '/century-suruchi',
   reactStrictMode: true,
   images: {
     remotePatterns: [
