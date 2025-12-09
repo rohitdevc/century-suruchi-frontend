@@ -10,7 +10,7 @@ export default function Header({
     scrollToContactUs
 }: any) {
     return (
-        <header className={`container flex flex-col justify-center bg-gradient-to-b from-[#2e4f84] to-[#a86882] md:px-5 md:pr-20 fixed z-5 top-0 overflow-hidden transition-all duration-300 ${mobileMenuStatus === true ? 'h-[100vh]' : 'h-10 md:h-20 lg:items-end'}`}>
+        <header className={`container max-w-full flex flex-col justify-center bg-gradient-to-b from-[#2e4f84] to-[#a86882] md:px-5 md:pr-20 fixed z-5 top-0 overflow-hidden transition-all duration-300 ${mobileMenuStatus === true ? 'h-[100vh]' : 'h-10 md:h-20 lg:items-end'}`}>
             <ul className={`flex flex-row gap-3 md:gap-10 lg:gap-15 justify-center items-center text-white text-[10px] md:text-sm lg:text-lg`}>
                 <li className="cursor-pointer w-fit group" onClick={scrollToAbout}>
                     <span className="relative">

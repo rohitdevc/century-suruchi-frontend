@@ -9,13 +9,13 @@ export default function Footer({
         contactUsRef: RefObject<HTMLDivElement | null>
     }) {
     return (
-        <footer ref={contactUsRef}>
-            <div className="container flex flex-col md:flex-row gap-10 md:gap-0 lg:gap-10 xl:gap-5 px-5 lg:px-10 xl:px-25 py-10 bg-[#f6f6f6] text-black">
-                <div className="md:w-[40%] xl:w-[30%] flex flex-col gap-5 md:pr-15 xl:pr-10">
+        <footer className="container max-w-full" ref={contactUsRef}>
+            <div className="flex flex-col md:flex-row gap-10 md:gap-0 lg:gap-10 xl:gap-5 px-5 lg:px-10 xl:px-25 py-10 bg-[#f6f6f6] text-black">
+                <div className="w-full md:w-[40%] xl:w-[30%] flex flex-col gap-5 md:pr-15 xl:pr-10 text-center items-center md:items-start md:text-left">
                     <Image src="/images/icons/century-50-years.svg" alt="Century 50 Years" width={300} height={100} />
                     <p className="text-lg xl:text-[20px] font-corporate-light leading-[1.2]">Suruchi Properties Private Limited  is a Real Estate Company primarily headquartered in Bangalore and is a Wholly-owned Subsidiary Company of Century Joint Developments Private Limited.</p>
                 </div>
-                <div className="md:w-[60%] xl:w-[70%] flex flex-col gap-10 font-corporate-regular font-medium">
+                <div className="w-full md:w-[60%] xl:w-[70%] flex flex-col gap-10 font-corporate-regular font-medium">
                     <div className="flex flex-col md:flex-row text-center md:text-left justify-between gap-5 md:gap-0">
                         <div className="flex flex-col gap-5">
                             <h2 className="text-xl lg:text-2xl">Registered Office</h2>
@@ -45,7 +45,7 @@ export default function Footer({
                     </div>
                 </div>
             </div>
-            <div className="container bg-[#9f1634] flex flex-col justify-center items-center md:items-end h-15 px-20">
+            <div className="bg-[#9f1634] flex flex-col justify-center items-center md:items-end h-15 px-20">
                 <ul className="flex gap-10">
                     <li>
                         <Link href="https://www.facebook.com/centuryrealestatebangalore/" target="_blank"><Image src="/images/icons/facebook.svg" alt="Facebook" width={20} height={20} /></Link>

@@ -30,10 +30,20 @@ export interface Management {
     management_designation: string;
 }
 
+interface InvestorRelationReports {
+    investor_relation_report_title: string;
+    investor_relation_report_file: string;
+}
+
+interface InvestorRelationCategories {
+    investor_relation_category_title: string;
+    investor_relation_reports: InvestorRelationReports[];
+}
+
 export interface InvestorRelation {
     investor_relation_tab_title: string;
     investor_relation_tab_content?: string;
-    investor_relation_categories?: [string];
+    investor_relation_categories: InvestorRelationCategories[];
 }
 
 export interface TokenResponse {
