@@ -132,7 +132,7 @@ export default function HomeComponent({
           <div className="absolute inset-0 flex justify-end top-10 left-5 md:left-20 text-white">
             <div className="group relative flex flex-col justify-end pr-5 py-5 md:py-20 gap-5 lg:gap-10">
               <input type="checkbox" className="peer absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer transition-all duration-200 checked:inset-auto checked:left-0 checked:top-[4.5rem] checked:w-[220px] checked:h-[50px]" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium font-corporate-regular mb-10 group-hover:mb-0 peer-checked:mb-0">{objectives[0].company_objective_caption}</h2>
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium font-corporate-regular mb-10 group-hover:mb-0 peer-checked:mb-0 [@media(hover:hover)]:hidden">{objectives[0].company_objective_caption}</h2>
               <span className="absolute left-0 mt-16 flex gap-5 items-center font-corporate-light text-lg md:text-xl lg:text-[25px] transition-opacity duration-100 opacity-100 group-hover:opacity-0 peer-checked:opacity-0">
                 <Image src={`${basePath}images/icons/right-arrow-button.svg`} alt="Right Arrow" width={40} height={40} className="w-5 md:w-10" /> Learn More
               </span>
@@ -155,7 +155,7 @@ export default function HomeComponent({
                 <Image src={objective.company_objective_image} alt="Century Suruchi {objective.company_objective_caption}" width={900} height={900} className="w-full h-full" />
                 <div className="absolute inset-0 flex justify-end top-3 left-5 md:left-20 text-white">
                   <div className="group relative flex flex-col justify-end pr-5 py-5 gap-5 lg:gap-10">
-                  <input type="checkbox" className="peer absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer transition-all duration-200 checked:inset-auto checked:left-0 checked:top-[4.5rem] checked:w-[220px] checked:h-[50px]" />
+                  <input type="checkbox" className="peer absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer transition-all duration-200 checked:inset-auto checked:left-0 checked:top-[4.5rem] checked:w-[220px] checked:h-[50px] [@media(hover:hover)]:hidden" />
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium font-corporate-regular mb-10 group-hover:mb-0 peer-checked:mb-0">{objective.company_objective_caption}</h2>
                   <span className="absolute left-0 mt-16 flex gap-5 items-center font-corporate-light text-lg md:text-xl lg:text-[25px] transition-opacity duration-100 opacity-100 group-hover:opacity-0 peer-checked:opacity-0">
                     <Image src={`${basePath}images/icons/right-arrow-button.svg`} alt="Right Arrow" width={40} height={40} className="w-5 md:w-10" /> Learn More
