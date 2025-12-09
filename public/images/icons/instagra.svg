@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23.8" height="23.8" viewBox="0 0 23.8 23.8">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="Path_12" data-name="Path 12" d="M664.122-37.572H645.98a2.825,2.825,0,0,0-2.829,2.823v18.155a2.826,2.826,0,0,0,2.829,2.823h18.142a2.826,2.826,0,0,0,2.829-2.823V-34.749a2.826,2.826,0,0,0-2.829-2.823Zm-3.864,3.718A.744.744,0,0,1,661-34.6h2.231a.744.744,0,0,1,.744.743v2.232a.744.744,0,0,1-.744.743H661a.744.744,0,0,1-.743-.743v-2.232Zm-5.179,3.643a4.572,4.572,0,0,1,4.577,4.566,4.572,4.572,0,0,1-4.577,4.566,4.571,4.571,0,0,1-4.577-4.566,4.572,4.572,0,0,1,4.577-4.566Zm9.641,13.463a.744.744,0,0,1-.744.744h-17.85a.744.744,0,0,1-.744-.744V-27.9h2.975a4.543,4.543,0,0,0-.519,2.259,7.24,7.24,0,0,0,7.24,7.223,7.24,7.24,0,0,0,7.241-7.223,3.81,3.81,0,0,0-.574-2.259h2.975v11.156Z" transform="translate(-643.151 37.572)" fill="#fff" clip-rule="evenodd"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="Path_11" data-name="Path 11" d="M-289,436.2H528.936V-137H-289Z" transform="translate(289 137)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="Insta_Icon" data-name="Insta Icon" clip-path="url(#clip-path)">
+    <g id="Group_31" data-name="Group 31" transform="translate(-605.111 -64.544)" clip-path="url(#clip-path-2)">
+      <path id="Path_10" data-name="Path 10" d="M638.151-42.572h30.292V-12.28H638.151Z" transform="translate(-36.285 103.871)" fill="#fff"/>
+    </g>
+  </g>
+</svg>
