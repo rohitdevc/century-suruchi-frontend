@@ -6,7 +6,6 @@ import HomeComponent from "./components/HomeComponent";
 const [ meta, banner ] = await Promise.all([ getMetaData(), getBanner() ]);
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.DOMAIN_NAME!),
   title: meta.meta_title,
   description: meta.meta_description,
   openGraph: {
