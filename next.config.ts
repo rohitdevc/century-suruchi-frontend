@@ -2,6 +2,9 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   basePath: '/century-suruchi',
+  turbopack: {
+    root: __dirname,
+  },
   reactStrictMode: true,
   images: {
     remotePatterns: [
