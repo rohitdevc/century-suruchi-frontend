@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState, useRef } from "react";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation, Autoplay } from "swiper/modules";
 import Header from "./header";
 import Footer from "./footer";
 
@@ -88,7 +88,7 @@ export default function HomeComponent({
     {
       slider && slider.length > 0 && (
         <section className="container max-w-full relative h-screen master_slider bg-[black] text-white">
-          <Swiper modules={[Pagination, Navigation]} navigation={{nextEl: '.swiper-button-next-master-slider', prevEl: '.swiper-button-prev-master-slider'}} pagination={{clickable: true}} loop={true} className="w-full h-full">
+          <Swiper modules={[Pagination, Navigation, Autoplay]} navigation={{nextEl: '.swiper-button-next-master-slider', prevEl: '.swiper-button-prev-master-slider'}} autoplay={{delay: 4000, disableOnInteraction: false}} pagination={{clickable: true}} loop={true} className="w-full h-full">
             {
               slider.map((slider_row, key) => (
                 <SwiperSlide key={key}>
