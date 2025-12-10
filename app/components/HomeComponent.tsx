@@ -45,6 +45,7 @@ export default function HomeComponent({
     const aboutRef = useRef<HTMLDivElement | null>(null);
     const keyManagementRef = useRef<HTMLDivElement | null>(null);
     const investorRelationRef = useRef<HTMLDivElement | null>(null);
+    const investorRelationContent = useRef<HTMLDivElement | null>(null);
     const contactUsRef = useRef<HTMLDivElement | null>(null);
     
     const [mobileMenuStatus, setMobileMenuStatus] = useState(false);
@@ -70,7 +71,8 @@ export default function HomeComponent({
 
   const toggleInvestorRelationCategory = (index: number) => {
       setActiveInvestorRelation(index);
-      setOpenInvestorRelation(0)
+      setOpenInvestorRelation(0);
+      scrollWithOffset(investorRelationContent)
   }
 
   return (
@@ -179,8 +181,8 @@ export default function HomeComponent({
             {
               management.map((management_row, key) => (
                 <div className="flex flex-col gap-2" key={key}>
-                  <p className="text-lg md:text-3xl lg:text-4xl xl:text-5xl">{management_row.management_name}</p>
-                  <span className="text-md md:text-2xl lg:text-3xl xl:text-4xl">({management_row.management_designation})</span>
+                  <p className="text-3xl lg:text-4xl xl:text-5xl">{management_row.management_name}</p>
+                  <span className="text-xl md:text-2xl lg:text-3xl xl:text-4xl">({management_row.management_designation})</span>
                 </div>
               ))
             }
@@ -209,7 +211,7 @@ export default function HomeComponent({
                 }
               </ul>
             </div>
-            <div className="md:w-[65%]">
+            <div className="md:w-[65%]" ref={investorRelationContent}>
               {
                   investors.map((investor_relation, key) => (
                   <div className={`w-full ${activeInvestorRelation === key ? '' : 'hidden'}`} key={key}>
@@ -221,14 +223,17 @@ export default function HomeComponent({
                               <h2>{investor_relation_category.investor_relation_category_title}</h2>
                               <Image src={`${basePath}images/icons/down-arrow.svg`} alt="Down Arrow" width={20} height={20} className={`transition-all duration-300 ${openInvestorRelation === category_key ? "rotate-180" : ''}`} />
                             </div>
-                            <div className={`overflow-hidden transition-all duration-300 ${openInvestorRelation === category_key ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}>
+                            <div className={`overflow-hidden transition-all duration-300 ${openInvestorRelation === category_key ? "max-h-[fit-content] opacity-100" : "max-h-0 opacity-0"}`}>
                               {
                                 investor_relation_category.investor_relation_reports && investor_relation_category.investor_relation_reports.length > 0 && (
                                   <ul className="flex flex-col gap-2 text-lg lg:text-xl font-corporate-light list-disc list-inside">
                                     {
                                       investor_relation_category.investor_relation_reports.map((investor_relation_report, investor_relation_report_key) => (
-                                        <li key={investor_relation_report_key}>
-                                          <Link href={investor_relation_report.investor_relation_report_file} target="_blank">{investor_relation_report.investor_relation_report_title}</Link>
+                                        <li className="w-fit group" key={investor_relation_report_key}>
+                                          <span className={`relative`}>
+                                            <Link href={investor_relation_report.investor_relation_report_file} target="_blank">{investor_relation_report.investor_relation_report_title}</Link>
+                                            <span className={`absolute left-1/2 -translate-x-1/2 bottom-[-2px] h-[1px] w-0 bg-black transition-all duration-300 group-hover:w-full`}></span>
+                                          </span>
                                         </li>
                                       ))
                                     }
@@ -249,7 +254,7 @@ export default function HomeComponent({
                               <h2>{investor_relation.investor_relation_tab_title}</h2>
                               <Image src={`${basePath}images/icons/down-arrow.svg`} alt="Down Arrow" width={20} height={20} className={`transition-all duration-300 rotate-180}`} />
                             </div>
-                            <div className={`overflow-hidden transition-all duration-300 max-h-[500px] opacity-100}`}>
+                            <div className={`overflow-hidden transition-all duration-300 max-h-[fit-content] opacity-100}`}>
                               { (investor_relation.investor_relation_tab_content) ? parse(investor_relation.investor_relation_tab_content) : ''}
                             </div>
                           </div>
