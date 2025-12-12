@@ -3,7 +3,10 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import { useState, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
@@ -42,7 +45,10 @@ export default function HomeComponent({
 }: HomeComponentProps) {
     const basePath = process.env.NEXT_PUBLIC_IMG_URL;
 
+    const sliderRef = useRef<HTMLDivElement | null>(null);
     const aboutRef = useRef<HTMLDivElement | null>(null);
+    const visionRef = useRef<HTMLDivElement | null>(null);
+    const objectivesRef = useRef<HTMLDivElement | null>(null);
     const keyManagementRef = useRef<HTMLDivElement | null>(null);
     const investorRelationRef = useRef<HTMLDivElement | null>(null);
     const investorRelationContent = useRef<HTMLDivElement | null>(null);
@@ -75,6 +81,163 @@ export default function HomeComponent({
       scrollWithOffset(investorRelationContent)
   }
 
+  useEffect(() => {
+      if (!aboutRef.current) return;
+      if (!objectivesRef.current) return;
+
+      const aboutBlocks = aboutRef.current.querySelectorAll(".obj-block");
+      const objectiveBlocks = objectivesRef.current.querySelectorAll(".obj-block");
+
+      let ctx = gsap.context(() => {
+          gsap.to(sliderRef.current, {
+              opacity: 1,
+              y: 30,
+              duration: 0.8,
+              ease: "power2.out"
+          })
+
+          gsap.fromTo(aboutRef.current, {
+              opacity: 0,
+              y: 30
+          }, {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: aboutRef.current,
+              start: "top: 75%",
+              end: "top: 20%",
+              scrub: true
+            }
+          })
+
+          gsap.from(aboutBlocks[0], {
+            opacity: 0,
+            x: -60,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: aboutRef.current,
+              start: "top 80%",
+              end: "top 20%",
+              scrub: true,
+            },
+          });
+          
+          gsap.from(aboutBlocks[1], {
+            opacity: 0,
+            x: 60,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: aboutRef.current,
+              start: "top 80%",
+              end: "top 20%",
+              scrub: true,
+            },
+          });
+
+          gsap.fromTo(visionRef.current, {
+              opacity: 0,
+              y: 30
+          }, {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: visionRef.current,
+              start: "top: 75%",
+              end: "top: 20%",
+              scrub: true
+            }
+          })
+
+          gsap.fromTo(objectivesRef.current, {
+              opacity: 0,
+              y: 30
+          }, {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: objectivesRef.current,
+              start: "top: 75%",
+              end: "top: 20%",
+              scrub: true
+            }
+          })
+
+          gsap.from(objectiveBlocks[0], {
+            opacity: 0,
+            x: -60,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: objectivesRef.current,
+              start: "top 80%",
+              end: "top 20%",
+              scrub: true,
+            },
+          });
+          
+          gsap.from(objectiveBlocks[1], {
+            opacity: 0,
+            x: 60,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: objectivesRef.current,
+              start: "top 80%",
+              end: "top 20%",
+              scrub: true,
+            },
+          });
+
+          gsap.fromTo(keyManagementRef.current, {
+              opacity: 0,
+              y: 30
+          }, {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: keyManagementRef.current,
+              start: "top: 75%",
+              end: "top: 20%",
+              scrub: true
+            }
+          })
+
+          gsap.fromTo(investorRelationRef.current, {
+              opacity: 0,
+              y: 30
+          }, {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: investorRelationRef.current,
+              start: "top: 90%",
+              end: "top: 20%",
+              scrub: true
+            }
+          })
+
+          gsap.fromTo(contactUsRef.current, {
+              opacity: 0,
+              y: 30
+          }, {
+            opacity: 1,
+            y: 0,
+            ease: "power2.out",
+            scrollTrigger: {
+              trigger: contactUsRef.current,
+              start: "top: 98%",
+              end: "top: 20%",
+              scrub: true
+            }
+          })
+      }, [sliderRef, aboutRef, visionRef, objectivesRef, keyManagementRef, investorRelationRef, contactUsRef]);
+
+      return () => ctx.revert();
+  }, [])
+
   return (
     <>
     <Header
@@ -87,7 +250,7 @@ export default function HomeComponent({
     />
     {
       slider && slider.length > 0 && (
-        <section className="container max-w-full relative h-screen master_slider bg-[black] text-white">
+        <section className="container max-w-full relative h-screen master_slider bg-[black] text-white opacity-0 translate-y-10" ref={sliderRef}>
           <Swiper modules={[Pagination, Navigation, Autoplay]} navigation={{nextEl: '.swiper-button-next-master-slider', prevEl: '.swiper-button-prev-master-slider'}} autoplay={{delay: 4000, disableOnInteraction: false}} pagination={{clickable: true}} loop={true} className="w-full h-full">
             {
               slider.map((slider_row, key) => (
@@ -114,20 +277,20 @@ export default function HomeComponent({
     }
     {
       about && (
-      <section className="container max-w-full flex flex-col md:flex-row gap-10 mt-15 bg-white text-black" ref={aboutRef}>
-        <div className="flex flex-col justify-center gap-5 w-full md:w-1/2 px-5 md:py-5 xl:pl-22">
+      <section className="container max-w-full overflow-hidden flex flex-col md:flex-row gap-10 mt-20 bg-white text-black opacity-0 translate-y-10" ref={aboutRef}>
+        <div className="flex flex-col justify-center gap-5 w-full md:w-1/2 px-5 md:py-5 xl:pl-22 obj-block">
           <h2 className="text-4xl font-medium font-corporate-regular">{about.about_intro_heading}</h2>
           <div className="flex flex-col gap-5 text-lg lg:text-[21px] font-corporate-light leading-tight xl:leading-normal">
             <p>{parse(nl2br(about.about_intro_description))}</p>
           </div>
         </div>
-        <Image src={about.about_intro_image} alt="Century Suruchi" width={750} height={750} className="w-full md:w-1/2" />
+        <Image src={about.about_intro_image} alt="Century Suruchi" width={750} height={750} className="w-full md:w-1/2 obj-block" />
       </section>
       )
     }
     {
       objectives && objectives.length > 0 && (
-        <section className="container max-w-full h-[300px] lg:h-[60vh] xl:h-[85vh] relative bg-white text-black">
+        <section className="container max-w-full h-[300px] lg:h-[60vh] xl:h-[85vh] relative bg-white text-black opacity-0 translate-y-10" ref={visionRef}>
           <Image src={objectives[0].company_objective_image} alt="Century Suruchi {objectives[0].company_objective_caption}" width={1920} height={900} className="w-full h-full" />
           <div className='w-full absolute inset-0 bg-gradient-to-t from-black via-black/5 to-transparent'></div>
 
@@ -146,13 +309,13 @@ export default function HomeComponent({
     }
     {
       objectives && objectives.length > 1 && (
-        <section className="container max-w-full flex flex-col md:flex-row bg-white text-black">
+        <section className="container max-w-full overflow-hidden flex flex-col md:flex-row bg-white text-black opacity-0 translate-y-10" ref={objectivesRef}>
           {
             objectives.map((objective, key) => {
               if (key === 0) return null;
 
               return (
-              <div className="w-full md:w-1/2 relative" key={key}>
+              <div className="w-full md:w-1/2 relative obj-block" key={key}>
                 <div className='w-full h-full absolute top-0 bg-[black] opacity-45'></div>
                 <Image src={objective.company_objective_image} alt="Century Suruchi {objective.company_objective_caption}" width={900} height={900} className="w-full h-full" />
                 <div className="absolute inset-0 flex justify-end top-3 left-5 md:left-20 text-white">
@@ -172,7 +335,7 @@ export default function HomeComponent({
     )}
     {
       management && management.length > 0 && (
-        <section className="container max-w-full flex flex-col gap-10 md:gap-20 py-25 px-5 lg:px-10 xl:px-25 font-corporate-regular bg-white text-black" ref={keyManagementRef}>
+        <section className="container max-w-full flex flex-col gap-10 md:gap-20 py-25 px-5 lg:px-10 xl:px-25 font-corporate-regular bg-white text-black opacity-0 translate-y-10" ref={keyManagementRef}>
           <div className="flex flex-col gap-5 justify-center items-center text-center">
             <h2 className="text-lg">KEY MANAGEMENT PERSONNEL</h2>
             <p className="text-2xl md:text-4xl">Experience is a crucial element of our success.</p>
@@ -192,7 +355,7 @@ export default function HomeComponent({
     }
     {
       investors && investors.length > 0 && (
-        <section className="container max-w-full flex flex-col gap-10 pb-15 font-corporate-regular bg-white text-black" ref={investorRelationRef}>
+        <section className="container max-w-full flex flex-col gap-10 pb-15 font-corporate-regular bg-white text-black opacity-0 translate-y-10" ref={investorRelationRef}>
           <div className="flex flex-col gap-5 justify-center items-center">
             <h2 className="text-lg">INVESTOR RELATIONS</h2>
           </div>

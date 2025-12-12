@@ -5,6 +5,14 @@ import HomeComponent from "./components/HomeComponent";
 
 const [ meta, banner ] = await Promise.all([ getMetaData(), getBanner() ]);
 
+export const viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#2e4f84" },
+    { media: "(prefers-color-scheme: dark)", color: "#2e4f84" },
+  ],
+};
+
+
 export const metadata: Metadata = {
   title: meta.meta_title,
   description: meta.meta_description,

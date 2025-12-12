@@ -11,7 +11,7 @@ export default function Footer({
         const basePath = process.env.NEXT_PUBLIC_IMG_URL;
 
     return (
-        <footer className="container max-w-full" ref={contactUsRef}>
+        <footer className="container max-w-full opacity-0 translate-y-10" ref={contactUsRef}>
             <div className="flex flex-col md:flex-row gap-10 md:gap-0 lg:gap-10 xl:gap-5 px-5 lg:px-10 xl:px-25 py-10 bg-[#f6f6f6] text-black">
                 <div className="w-full md:w-[40%] xl:w-[30%] flex flex-col gap-5 md:pr-15 xl:pr-10 text-center items-center md:items-start md:text-left">
                     <Image src={`${basePath}images/icons/century-50-years.svg`} alt="Century 50 Years" width={300} height={100} />
