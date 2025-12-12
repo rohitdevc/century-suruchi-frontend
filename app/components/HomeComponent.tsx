@@ -221,14 +221,14 @@ export default function HomeComponent({
 
           gsap.fromTo(contactUsRef.current, {
               opacity: 0,
-              y: 30
+              y: 10
           }, {
             opacity: 1,
             y: 0,
             ease: "power2.out",
             scrollTrigger: {
               trigger: contactUsRef.current,
-              start: "top: 98%",
+              start: "top: 99%",
               end: "top: 20%",
               scrub: true
             }
