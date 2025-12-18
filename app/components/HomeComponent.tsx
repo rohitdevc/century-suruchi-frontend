@@ -218,22 +218,7 @@ export default function HomeComponent({
               scrub: true
             }
           })
-
-          gsap.fromTo(contactUsRef.current, {
-              opacity: 0,
-              y: 10
-          }, {
-            opacity: 1,
-            y: 0,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: contactUsRef.current,
-              start: "top: 99%",
-              end: "top: 20%",
-              scrub: true
-            }
-          })
-      }, [sliderRef, aboutRef, visionRef, objectivesRef, keyManagementRef, investorRelationRef, contactUsRef]);
+      }, [sliderRef, aboutRef, visionRef, objectivesRef, keyManagementRef, investorRelationRef]);
 
       return () => ctx.revert();
   }, [])
