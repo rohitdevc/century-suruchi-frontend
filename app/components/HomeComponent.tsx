@@ -66,7 +66,7 @@ export default function HomeComponent({
       window.scrollTo({ top, behavior: "smooth" });
       
       setMobileMenuStatus(false);
-  };
+    };
 
   const [openInvestorRelation, setOpenInvestorRelation] = useState(0);
   const [activeInvestorRelation, setActiveInvestorRelation] = useState(0);
@@ -213,7 +213,7 @@ export default function HomeComponent({
             ease: "power2.out",
             scrollTrigger: {
               trigger: investorRelationRef.current,
-              start: "top: 90%",
+              start: "top: 95%",
               end: "top: 20%",
               scrub: true
             }
@@ -296,12 +296,12 @@ export default function HomeComponent({
 
           <div className="absolute inset-0 flex justify-end top-10 left-5 md:left-20 text-white">
             <div className="group relative flex flex-col justify-end pr-5 py-5 md:py-20 gap-5 lg:gap-10">
-              <input type="checkbox" className="peer absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer transition-all duration-200 checked:inset-auto checked:left-0 checked:top-[4.5rem] checked:w-[220px] checked:h-[50px] [@media(hover:hover)]:hidden" />
-              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium font-corporate-regular mb-10 group-hover:mb-0 peer-checked:mb-0">{objectives[0].company_objective_caption}</h2>
-              <span className="absolute left-0 mt-16 flex gap-5 items-center font-corporate-light text-lg md:text-xl lg:text-[25px] transition-opacity duration-1000 opacity-100 group-hover:opacity-0 peer-checked:opacity-0">
+              <input type="checkbox" className="peer absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer transition-all duration-200 checked:inset-auto checked:left-0 checked:top-[4.5rem] checked:w-[220px] checked:h-[50px] [@media(hover:hover)]:hidden hidden" />
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium font-corporate-regular mb-0 group-hover:mb-0 peer-checked:mb-0">{objectives[0].company_objective_caption}</h2>
+              <span className="absolute left-0 mt-16 flex gap-5 items-center font-corporate-light text-lg md:text-xl lg:text-[25px] transition-opacity duration-1000 opacity-100 group-hover:opacity-0 peer-checked:opacity-0 hidden">
                 <Image src={`${basePath}images/icons/right-arrow-button.svg`} alt="Right Arrow" width={40} height={40} className="w-5 md:w-10" /> Learn More
               </span>
-              <p className="w-full md:w-1/2 text-lg max-h-0 opacity-0 overflow-y-auto overflow-hidden transition-all duration-1000 ease-in-out group-hover:max-h-[800px] peer-checked:max-h-[800px] group-hover:opacity-100 peer-checked:opacity-100 transform translate-y-5 group-hover:translate-y-0 peer-checked:translate-y-0">{parse(nl2br(objectives[0].company_objective_description))}</p>
+              <p className="w-full md:w-1/2 text-lg max-h-[800px] opacity-100 overflow-y-auto overflow-hidden transition-all duration-1000 ease-in-out group-hover:max-h-[800px] peer-checked:max-h-[800px] group-hover:opacity-100 peer-checked:opacity-100 transform translate-y-0 group-hover:translate-y-0 peer-checked:translate-y-0">{parse(nl2br(objectives[0].company_objective_description))}</p>
             </div>
           </div>
         </section>
@@ -320,12 +320,12 @@ export default function HomeComponent({
                 <Image src={objective.company_objective_image} alt="Century Suruchi {objective.company_objective_caption}" width={900} height={900} className="w-full h-full" />
                 <div className="absolute inset-0 flex justify-end top-3 left-5 md:left-20 text-white">
                   <div className="group relative flex flex-col justify-end pr-5 py-5 gap-5 lg:gap-10">
-                  <input type="checkbox" className="peer absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer transition-all duration-200 checked:inset-auto checked:left-0 checked:top-[4.5rem] checked:w-[220px] checked:h-[50px] [@media(hover:hover)]:hidden" />
-                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium font-corporate-regular mb-10 group-hover:mb-0 peer-checked:mb-0">{objective.company_objective_caption}</h2>
-                  <span className="absolute left-0 mt-16 flex gap-5 items-center font-corporate-light text-lg md:text-xl lg:text-[25px] transition-opacity duration-1000 opacity-100 group-hover:opacity-0 peer-checked:opacity-0">
+                  <input type="checkbox" className="peer absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer transition-all duration-200 checked:inset-auto checked:left-0 checked:top-[4.5rem] checked:w-[220px] checked:h-[50px] [@media(hover:hover)]:hidden hidden" />
+                  <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium font-corporate-regular mb-0 group-hover:mb-0 peer-checked:mb-0">{objective.company_objective_caption}</h2>
+                  <span className="absolute left-0 mt-16 flex gap-5 items-center font-corporate-light text-lg md:text-xl lg:text-[25px] transition-opacity duration-1000 opacity-100 group-hover:opacity-0 peer-checked:opacity-0 hidden">
                     <Image src={`${basePath}images/icons/right-arrow-button.svg`} alt="Right Arrow" width={40} height={40} className="w-5 md:w-10" /> Learn More
                   </span>
-                  <p className="text-lg max-h-0 opacity-0 overflow-y-auto overflow-hidden transition-all duration-1000 ease-in-out group-hover:max-h-[800px] peer-checked:max-h-[800px] group-hover:opacity-100 peer-checked:opacity-100 transform translate-y-5 group-hover:translate-y-0 peer-checked:translate-y-0">{parse(nl2br(objective.company_objective_description))}</p>
+                  <p className="text-lg max-h-[800px] opacity-100 overflow-y-auto overflow-hidden transition-all duration-1000 ease-in-out group-hover:max-h-[800px] peer-checked:max-h-[800px] group-hover:opacity-100 peer-checked:opacity-100 transform translate-y-0 group-hover:translate-y-0 peer-checked:translate-y-0">{parse(nl2br(objective.company_objective_description))}</p>
                   </div>
                 </div>
               </div>
@@ -335,17 +335,16 @@ export default function HomeComponent({
     )}
     {
       management && management.length > 0 && (
-        <section className="container max-w-full flex flex-col gap-10 md:gap-20 py-25 px-5 lg:px-10 xl:px-25 font-corporate-regular bg-white text-black opacity-0 translate-y-10" ref={keyManagementRef}>
+        <section className="container max-w-full flex flex-col gap-10 md:gap-20 py-20 px-5 lg:px-10 xl:px-25 font-corporate-regular bg-white text-black opacity-0 translate-y-10" ref={keyManagementRef}>
           <div className="flex flex-col gap-5 justify-center items-center text-center">
-            <h2 className="text-lg">KEY MANAGEMENT PERSONNEL</h2>
-            <p className="text-2xl md:text-4xl">Experience is a crucial element of our success.</p>
+            <h2 className="text-2xl">KEY MANAGEMENT PERSONNEL</h2>
           </div>
           <div className="flex flex-col md:flex-row gap-5 text-center justify-between">
             {
               management.map((management_row, key) => (
                 <div className="flex flex-col gap-2" key={key}>
-                  <p className="text-3xl lg:text-4xl xl:text-5xl">{management_row.management_name}</p>
-                  <span className="text-xl md:text-2xl lg:text-3xl xl:text-4xl">({management_row.management_designation})</span>
+                  <p className="text-3xl lg:text-4xl">{management_row.management_name}</p>
+                  <span className="text-xl md:text-2xl lg:text-3xl">({management_row.management_designation})</span>
                 </div>
               ))
             }
@@ -357,7 +356,7 @@ export default function HomeComponent({
       investors && investors.length > 0 && (
         <section className="container max-w-full flex flex-col gap-10 pb-15 font-corporate-regular bg-white text-black opacity-0 translate-y-10" ref={investorRelationRef}>
           <div className="flex flex-col gap-5 justify-center items-center">
-            <h2 className="text-lg">INVESTOR RELATIONS</h2>
+            <h2 className="text-2xl">INVESTOR RELATIONS</h2>
           </div>
           <div className="flex flex-col md:flex-row gap-5 md:gap-0 px-5 lg:px-10 xl:px-25">
             <div className="md:w-[35%] lg:w-[40%] border-b-3 md:border-b-0 md:border-r-3 border-[#ede3e5] pb-5 md:py-0">
