@@ -43,7 +43,7 @@ export default function HomeComponent({
     management,
     investors
 }: HomeComponentProps) {
-    const basePath = process.env.NEXT_PUBLIC_IMG_URL;
+    const basePath = process.env.NEXT_PUBLIC_PATH;
 
     const sliderRef = useRef<HTMLDivElement | null>(null);
     const aboutRef = useRef<HTMLDivElement | null>(null);

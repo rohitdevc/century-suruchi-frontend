@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  basePath: '/century-suruchi',
+  basePath: '',
   turbopack: {
     root: __dirname,
   },
@@ -18,7 +18,7 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'www.centuryrealestate.in',
         port: '',
-        pathname: '/century-suruchi/**'
+        pathname: '/**'
       },
     ]
   },
