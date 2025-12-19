@@ -277,10 +277,10 @@ export default function HomeComponent({
       objectives && objectives.length > 0 && (
         <section className="container max-w-full h-[300px] lg:h-[60vh] xl:h-[85vh] relative bg-white text-black opacity-0 translate-y-10" ref={visionRef}>
           <Image src={objectives[0].company_objective_image} alt="Century Suruchi {objectives[0].company_objective_caption}" width={1920} height={900} className="w-full h-full" />
-          <div className='w-full absolute inset-0 bg-gradient-to-t from-black via-black/5 to-transparent'></div>
+          <div className='w-full h-full absolute top-0 bg-[black] opacity-70'></div>
 
-          <div className="absolute inset-0 flex justify-end top-10 left-5 md:left-20 text-white">
-            <div className="group relative flex flex-col justify-end pr-5 py-5 md:py-20 gap-5 lg:gap-10">
+          <div className="absolute inset-0 flex top-0 left-5 md:left-20 text-white">
+            <div className="group relative flex flex-col pr-5 py-5 md:py-20 gap-5 lg:gap-10">
               <input type="checkbox" className="peer absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer transition-all duration-200 checked:inset-auto checked:left-0 checked:top-[4.5rem] checked:w-[220px] checked:h-[50px] [@media(hover:hover)]:hidden hidden" />
               <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium font-corporate-regular mb-0 group-hover:mb-0 peer-checked:mb-0">{objectives[0].company_objective_caption}</h2>
               <span className="absolute left-0 mt-16 flex gap-5 items-center font-corporate-light text-lg md:text-xl lg:text-[25px] transition-opacity duration-1000 opacity-100 group-hover:opacity-0 peer-checked:opacity-0 hidden">
@@ -301,10 +301,10 @@ export default function HomeComponent({
 
               return (
               <div className="w-full md:w-1/2 relative obj-block" key={key}>
-                <div className='w-full h-full absolute top-0 bg-[black] opacity-45'></div>
+                <div className='w-full h-full absolute top-0 bg-[black] opacity-70'></div>
                 <Image src={objective.company_objective_image} alt="Century Suruchi {objective.company_objective_caption}" width={900} height={900} className="w-full h-full" />
-                <div className="absolute inset-0 flex justify-end top-3 left-5 md:left-20 text-white">
-                  <div className="group relative flex flex-col justify-end pr-5 py-5 gap-5 lg:gap-10">
+                <div className="absolute inset-0 flex top-3 left-5 md:left-20 text-white">
+                  <div className="group relative flex flex-col pr-5 py-5 gap-5 lg:gap-10">
                   <input type="checkbox" className="peer absolute inset-0 w-full h-full opacity-0 z-10 cursor-pointer transition-all duration-200 checked:inset-auto checked:left-0 checked:top-[4.5rem] checked:w-[220px] checked:h-[50px] [@media(hover:hover)]:hidden hidden" />
                   <h2 className="text-2xl md:text-3xl lg:text-4xl font-medium font-corporate-regular mb-0 group-hover:mb-0 peer-checked:mb-0">{objective.company_objective_caption}</h2>
                   <span className="absolute left-0 mt-16 flex gap-5 items-center font-corporate-light text-lg md:text-xl lg:text-[25px] transition-opacity duration-1000 opacity-100 group-hover:opacity-0 peer-checked:opacity-0 hidden">
