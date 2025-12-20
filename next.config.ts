@@ -16,7 +16,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'www.centuryrealestate.in',
+        hostname: 'suruchi.centuryrealestate.in',
         port: '',
         pathname: '/**'
       },
