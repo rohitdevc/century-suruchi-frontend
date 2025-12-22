@@ -105,7 +105,7 @@ export default function HomeComponent({
             ease: "power2.out",
             scrollTrigger: {
               trigger: aboutRef.current,
-              start: "top: 75%",
+              start: "top: 80%",
               end: "top: 20%",
               scrub: true
             }
@@ -144,7 +144,7 @@ export default function HomeComponent({
             ease: "power2.out",
             scrollTrigger: {
               trigger: visionRef.current,
-              start: "top: 75%",
+              start: "top: 80%",
               end: "top: 20%",
               scrub: true
             }
@@ -159,7 +159,7 @@ export default function HomeComponent({
             ease: "power2.out",
             scrollTrigger: {
               trigger: objectivesRef.current,
-              start: "top: 75%",
+              start: "top: 80%",
               end: "top: 20%",
               scrub: true
             }
@@ -198,7 +198,7 @@ export default function HomeComponent({
             ease: "power2.out",
             scrollTrigger: {
               trigger: keyManagementRef.current,
-              start: "top: 75%",
+              start: "top: 80%",
               end: "top: 20%",
               scrub: true
             }
@@ -214,7 +214,7 @@ export default function HomeComponent({
             scrollTrigger: {
               trigger: investorRelationRef.current,
               start: "top: 95%",
-              end: "top: 20%",
+              end: "top: 5%",
               scrub: true
             }
           })
@@ -324,7 +324,7 @@ export default function HomeComponent({
           <div className="flex flex-col gap-5 justify-center items-center text-center">
             <h2 className="text-2xl">KEY MANAGEMENT PERSONNEL</h2>
           </div>
-          <div className="flex flex-col md:flex-row gap-5 text-center justify-between">
+          <div className="flex flex-col md:flex-row gap-5 text-center justify-around">
             {
               management.map((management_row, key) => (
                 <div className="flex flex-col gap-2" key={key}>
