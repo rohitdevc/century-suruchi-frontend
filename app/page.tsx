@@ -12,6 +12,7 @@ export const viewport = {
   ],
 };
 
+export const revalidate = 600;
 
 export const metadata: Metadata = {
   title: meta.meta_title,
