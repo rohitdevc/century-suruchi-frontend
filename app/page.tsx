@@ -17,11 +17,14 @@ export const revalidate = 600;
 export const metadata: Metadata = {
   title: meta.meta_title,
   description: meta.meta_description,
+  alternates: {
+    canonical: meta.canonical_tag
+  },
   openGraph: {
       title: meta.meta_title,
       description: meta.meta_description,
       type: "website",
-      url: process.env.canonical_tag,
+      url: meta.canonical_tag,
       siteName: "Century Suruchi",
       images: [
         {
