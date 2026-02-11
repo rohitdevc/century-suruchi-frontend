@@ -1,7 +1,7 @@
 import { getMetaData, getBanner, getMasterSlider, getAboutIntro, getCompanyObjectives, getManagement, getInvestorRelations } from "@/lib/home";
 
 import type { Metadata } from "next";
-import HomeComponent from "./components/HomeComponent";
+import HomeComponent from "@/components/HomeComponent";
 
 const [ meta, banner ] = await Promise.all([ getMetaData(), getBanner() ]);
 
