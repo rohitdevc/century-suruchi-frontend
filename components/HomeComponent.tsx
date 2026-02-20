@@ -322,7 +322,7 @@ export default function HomeComponent({
       management && management.length > 0 && (
         <section className="container max-w-full flex flex-col gap-10 md:gap-20 py-20 px-5 lg:px-10 xl:px-25 font-corporate-regular bg-white text-black opacity-0 translate-y-10" ref={keyManagementRef}>
           <div className="flex flex-col gap-5 justify-center items-center text-center">
-            <h2 className="text-2xl">KEY MANAGEMENT PERSONNEL</h2>
+            <h2 className="text-2xl">DIRECTORS & KMP</h2>
           </div>
           <div className="flex flex-col md:flex-row gap-5 text-center justify-around">
             {
