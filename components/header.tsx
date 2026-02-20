@@ -41,7 +41,7 @@ export default function Header({
                 </li>
                 <li className="cursor-pointer w-fit group opacity-0" onClick={scrollToKeyManagement}>
                     <span className="relative">
-                        KEY MANAGEMENT PERSONNEL
+                        DIRECTORS & KMP
                         <span className={`absolute left-1/2 -translate-x-1/2 bottom-[-2px] h-[1px] w-0 bg-white transition-all duration-300 group-hover:w-full`}></span>
                     </span>
                 </li>
