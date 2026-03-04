@@ -375,14 +375,18 @@ export default function HomeComponent({
                                 investor_relation_category.investor_relation_reports && investor_relation_category.investor_relation_reports.length > 0 && (
                                   <ul className="flex flex-col gap-2 text-lg lg:text-xl font-corporate-light list-disc list-inside">
                                     {
-                                      investor_relation_category.investor_relation_reports.map((investor_relation_report, investor_relation_report_key) => (
-                                        <li className="w-fit group" key={investor_relation_report_key}>
-                                          <span className={`relative`}>
-                                            <Link href={investor_relation_report.investor_relation_report_file} target="_blank">{investor_relation_report.investor_relation_report_title}</Link>
-                                            <span className={`absolute left-1/2 -translate-x-1/2 bottom-[-2px] h-[1px] w-0 bg-black transition-all duration-300 group-hover:w-full`}></span>
-                                          </span>
-                                        </li>
-                                      ))
+                                      investor_relation_category.investor_relation_reports.map((investor_relation_report, investor_relation_report_key) => {
+                                        const report_url = (investor_relation_report.investor_relation_report_link) ? investor_relation_report.investor_relation_report_link : investor_relation_report.investor_relation_report_file;
+
+                                        return (
+                                          <li className="w-fit group" key={investor_relation_report_key}>
+                                            <span className={`relative`}>
+                                              <Link href={report_url} target="_blank">{investor_relation_report.investor_relation_report_title}</Link>
+                                              <span className={`absolute left-1/2 -translate-x-1/2 bottom-[-2px] h-[1px] w-0 bg-black transition-all duration-300 group-hover:w-full`}></span>
+                                            </span>
+                                          </li>
+                                        )
+                                      })
                                     }
                                   </ul>
                                 )

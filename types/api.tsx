@@ -33,6 +33,7 @@ export interface Management {
 interface InvestorRelationReports {
     investor_relation_report_title: string;
     investor_relation_report_file: string;
+    investor_relation_report_link: string;
 }
 
 interface InvestorRelationCategories {
