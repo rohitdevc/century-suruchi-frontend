@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const isNetlifyDomain = process.env.URL?.includes("netlify.app");
 
 const nextConfig: NextConfig = {
+  output: "standalone",
   async headers() {
     if (!isNetlifyDomain) return [];
     
