@@ -1,9 +1,18 @@
-import { getMetaData, getBanner, getMasterSlider, getAboutIntro, getCompanyObjectives, getManagement, getInvestorRelations } from "@/lib/home";
-
 import type { Metadata } from "next";
+
+import {
+  getMetaData,
+  getBanner,
+  getMasterSlider,
+  getAboutIntro,
+  getCompanyObjectives,
+  getManagement,
+  getInvestorRelations,
+} from "@/lib/home";
+
 import HomeComponent from "@/components/HomeComponent";
 
-const [ meta, banner ] = await Promise.all([ getMetaData(), getBanner() ]);
+export const dynamic = "force-dynamic";
 
 export const viewport = {
   themeColor: [
@@ -12,39 +21,59 @@ export const viewport = {
   ],
 };
 
-export const revalidate = 600;
+export async function generateMetadata(): Promise<Metadata> {
+  const [meta, banner] = await Promise.all([
+    getMetaData(),
+    getBanner(),
+  ]);
 
-export const metadata: Metadata = {
-  title: meta.meta_title,
-  description: meta.meta_description,
-  alternates: {
-    canonical: meta.canonical_tag
-  },
-  openGraph: {
-      title: meta.meta_title,
-      description: meta.meta_description,
+  return {
+    title: meta?.meta_title,
+    description: meta?.meta_description,
+
+    alternates: {
+      canonical: meta?.canonical_tag,
+    },
+
+    openGraph: {
+      title: meta?.meta_title,
+      description: meta?.meta_description,
       type: "website",
-      url: meta.canonical_tag,
-      siteName: "Century Suruchi",
+      url: meta?.canonical_tag,
+      siteName: "Century Join Developers",
       images: [
         {
-          url: banner.banner_image,
+          url: banner?.banner_image,
           width: 1200,
           height: 630,
-          alt: meta.meta_title,
+          alt: meta?.meta_title,
         },
       ],
     },
+
     twitter: {
       card: "summary_large_image",
-      title: meta.meta_title,
-      description: meta.meta_description,
-      images: [banner.banner_image],
+      title: meta?.meta_title,
+      description: meta?.meta_description,
+      images: [banner?.banner_image],
     },
-};
+  };
+}
 
 export default async function Home() {
-  const [ slider, about, objectives, management, investors] = await Promise.all([ getMasterSlider(), getAboutIntro(), getCompanyObjectives(), getManagement(), getInvestorRelations() ]);
+  const [
+    slider,
+    about,
+    objectives,
+    management,
+    investors,
+  ] = await Promise.all([
+    getMasterSlider(),
+    getAboutIntro(),
+    getCompanyObjectives(),
+    getManagement(),
+    getInvestorRelations(),
+  ]);
 
   return (
     <HomeComponent
@@ -52,6 +81,7 @@ export default async function Home() {
       about={about}
       objectives={objectives}
       management={management}
-      investors={investors} />
-  )
+      investors={investors}
+    />
+  );
 }

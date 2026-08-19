@@ -4,13 +4,12 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-      args:
-        API_DOMAIN_NAME: ${API_DOMAIN_NAME}
-        NEXT_PUBLIC_PATH: ${NEXT_PUBLIC_PATH}
-        CONTEXT: ${CONTEXT}
 
     env_file:
       - .env
+
+    volumes:
+      - ./public:/app/public
 
     environment:
       NODE_ENV: production
