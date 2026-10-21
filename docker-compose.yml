@@ -1,3 +1,5 @@
+name: century-suruchi-frontend
+
 services:
   suruchi:
     container_name: century-suruchi
