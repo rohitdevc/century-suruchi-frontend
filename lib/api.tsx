@@ -11,7 +11,7 @@ export async function apiFetch<T>(endpoint: string, options: RequestInit = {}): 
             Connection: "close",
             ...options.headers,
         },
-        cache: "no-store",
+        cache: "force-cache",
         });
 
         if (!res.ok) {
