@@ -12,8 +12,6 @@ import {
 
 import HomeComponent from "@/components/HomeComponent";
 
-export const dynamic = "force-dynamic";
-
 export const viewport = {
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "#2e4f84" },
